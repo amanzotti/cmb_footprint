@@ -5,7 +5,7 @@ the configuration file.
 '''
 
 try:
-    import ConfigParser
+    import configparser
 except ImportError:
     import configparser as ConfigParser
 
@@ -109,7 +109,7 @@ def gen_markdown():
 
 def process_config(fn):
 
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     config.read(fn)
 
 #   Add the entries to the correct table

@@ -9,7 +9,7 @@ footprint.py : Survey footprint related classes and functions
 This module provides the class which we use to generate a survey footprint
 '''
 
-from __future__ import print_function
+
 
 import os
 import inspect

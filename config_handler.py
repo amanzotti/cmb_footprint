@@ -10,12 +10,12 @@ This module provides the class that interprets the configuration file and
 generates or reads in healpix maps corresponding to survey footprints.
 '''
 
-from __future__ import print_function
+
 
 # For differing imports between Python2 and Python3
 try:
-    import ConfigParser
-    from urllib2 import urlopen
+    import configparser
+    from urllib.request import urlopen
 except ImportError:
     import configparser as ConfigParser
     from urllib.request import urlopen
@@ -46,7 +46,7 @@ class ConfigHandler(object):
         if download_config:
             self.get_config()
 
-        self.config = ConfigParser.ConfigParser()
+        self.config = configparser.ConfigParser()
         self.config.read(config_fn)
         self.check_all()
 
@@ -233,7 +233,7 @@ class ConfigHandler(object):
             radec_point = 'vertex'+str(i)
             try:
                 radec_val = self.config.get(survey_name, radec_point)
-            except ConfigParser.NoOptionError:
+            except configparser.NoOptionError:
                 break
 
             lonlat_val = radec_val.split(',')
@@ -440,7 +440,7 @@ class ConfigHandler(object):
             radec_point = 'vertex'+str(i)
             try:
                 radec_val = self.config.get(survey_name, radec_point)
-            except ConfigParser.NoOptionError:
+            except configparser.NoOptionError:
                 break
 
             lonlat_val = radec_val.split(',')
